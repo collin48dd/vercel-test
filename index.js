@@ -1,15 +1,16 @@
-const express = require('express');
+var http = require('http').createServer(handler); //require http server, and create server with function handler()
+var fs = require('fs'); //require filesystem module
 
-const app = express();
+http.listen(8080); //listen to port 8080
 
-app.get('/', (req, res) => res.send('Home Page Route'));
-
-app.get('/about', (req, res) => res.send('About Page Route'));
-
-app.get('/portfolio', (req, res) => res.send('Portfolio Page Route'));
-
-app.get('/contact', (req, res) => res.send('Contact Page Route'));
-
-const port = process.env.PORT || 8000;
-
-app.listen(port, () => console.log(`Server running on ${port}, http://localhost:${port}`));
+function handler (req, res) { //create server
+  fs.readFile(__dirname + '/index.html', function(err, data) { //read file index.html in public folder
+    if (err) {
+      res.writeHead(404, {'Content-Type': 'text/html'}); //display 404 on error
+      return res.end("404 Not Found");
+    }
+    res.writeHead(200, {'Content-Type': 'text/html'}); //write HTML
+    res.write(data); //write data from index.html
+    return res.end();
+  });
+}
