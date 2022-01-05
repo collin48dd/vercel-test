@@ -4,6 +4,23 @@
 
 <h1>Test Website</h1>
 
+<form onsubmit="sendText()">
+    Enter your number: <input id="number" type="text" size="20">
+    <input type="submit">
+  </form>
 
+<script>
+    function sendText() {
+        const numberInput = document.getElementById('number');
+        console.log(numberInput);
+        client.messages.create({
+            body: 'hello',
+            from: '+1',
+            to: '+1'
+        })
+    .then(message => console.log(message))
+    .catch(error => console.log(error))
+    }
+    </script>
 </body>
 </html>

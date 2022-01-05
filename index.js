@@ -1,6 +1,12 @@
 var http = require('http').createServer(handler); //require http server, and create server with function handler()
 var fs = require('fs'); //require filesystem module
 
+//const accountSid = process.env.TWILIO_ACCOUNT_SID;
+//const authToken = process.env.TWILIO_AUTH_TOKEN;
+//const client = require('twilio')('', '');
+
+require('dotenv').config();
+
 http.listen(8080); //listen to port 8080
 
 function handler (req, res) { //create server
