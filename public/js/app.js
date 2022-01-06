@@ -1,4 +1,5 @@
 var numberField = document.querySelector('input[name=number]');
+var emailField = document.querySelector('input[name=email]');
 var textField = document.querySelector('input[name=text]');
 var button = document.querySelector('input[type=button]');
 var msg = document.querySelector('.response');
@@ -12,13 +13,14 @@ textField.addEventListener('keyup', function(e) {
   function send() {
     var number = numberField.value.replace(/\D/g,''); // Remove all non-numeric chars
     var text = textField.value;
+    var email = emailField.value;
     // ... will send the form using fetch here
     fetch('/', {
         method: 'post',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({number: '+1' + number, text: text})
+        body: JSON.stringify({number: '+1' + number, email: email, text: text})
       })
       .then(function(res){ console.log(res) })
       .catch(function(error){ console.log(error)});

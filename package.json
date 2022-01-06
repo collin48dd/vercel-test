@@ -13,6 +13,7 @@
   "dependencies": {
     "dotenv": "^10.0.0",
     "express": "^4.17.2",
+    "nodemailer": "^6.7.2",
     "twilio": "^3.72.0",
     "vercel": "^23.1.2"
   }
