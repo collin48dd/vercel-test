@@ -1,0 +1,19 @@
+GET http://localhost:5000
+
+###
+
+GET https://example.com/topics/1 HTTP/1.1
+
+###
+
+POST http://localhost:5000/contact
+content-type: application/json
+
+{
+    "name": "Jonathan",
+    "lastName": "Darbyshire"
+}
+
+###
+
+GET 8.8.8.8
